@@ -1,0 +1,190 @@
+install node js - runtime environment to run js 
+
+extension - react dev tools , live server 
+
+website :- react js .org
+
+create react app - npm install create react app
+
+ npx create-react-app  my-app
+
+installation , extension - video 1 
+
+props - properties , pass some values , content to component
+defaultprops :- pass default values to component
+                if u dont pass any value 
+
+ state - belobg to component 
+
+ const[text , setText] =useState("enter text here ");
+ 
+  text - is variable , setText is function to update text variable
+  
+   <div style={{background : "red",padding:20, width:400}}>
+     u can pass object in div in key value pair
+-------------------------------
+use reactstrap for boot strap  
+
+npm install bootstrap reactstrap  - innstalling bootstrap & reactstrap
+
+use reactstrap website for readymade commponents\
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+paste it in index.js for boot strap
+--------------------------------
+use tostify library for alerts ,msgs
+---------------------------------
+
+axios library to send request to server
+----------------------------
+passing array as prop - from app.js
+ <Course course={{title:"core java " ,discription:"3 months"}}  />
+
+so access this values in ur Course component by course.title, we will pass course array as prop in Course component ;
+-----------------------------------------------------
+
+export default function Allcourses() {
+  
+    // it is courses array
+    const [courses ,setCourses] =useState([
+      
+        {title:"core java " ,discription:"3 months course"},
+        {title:"advance java " ,discription:"2 months course ,spring framework"},
+        {title:" JAVASCCRIPT",discription:"5 months course ,DOM,ES6"},
+        {title:"react js " ,discription:"8 months course ,js" }
+    ])
+  
+    return (
+    <div>
+      <h1>All Courses</h1>
+      <p>List of Course are as follows</p>
+
+       {
+          courses.length>0 ? courses.map((courses)=>(
+            <Course course={courses} />
+          )) : "no courses available"
+ 
+ /*     line no: 23 ;  if courses array length greater than 0 then we apply
+                      map fun on courses array so this map fun returns
+                      one entire element as " {title:"core java " ,discription:"3 months course"},"
+                      so thne we will pass this 1 course to our <Course/> component as a PropArray 
+                      then in Course.js - we will access this course by course.title,course.discription    
+                            
+ */
+--------------------------------------------------
+02:18:29  end of frontend : only ui
+
+component lifecycle methods 
+
+didmount,unmount , didupdate
+-------------------------------
+by useEffect hook- u can call defined fun when commponents load first time
+
+upto 2:42:51 - end of show courses :
+---------------------------------------
+then -  add courses module  imp for understanding 
+2.43.45 - imp take input data and pass to backend 
+
+  e.preventDefault();   // avoid default form submission  functionality,
+                         // prevent default action of event 
+                         -
+
+ 
+// creating fun to post data to server //step 5
+
+const  transferDatatoserver =(course) => {
+  
+  axios.post(`${baseurl}/BACKENDURL`,course).then(
+    (response)  =>   {
+      console.log(response);
+      console.log("success");
+  
+
+    },
+    (error)=> {
+      console.log("error");
+           console.log(error);
+
+    }
+  );
+
+  
+   };                        
+ ---------------------------------------
+ <Input type="text" placeholder="enter here"
+           id="id" name="id"
+           onChange={(e)=>{
+            setCourse({...course, id:e.target.value})
+           }}    //  this setCourse fun takes intial state first then set id =e.target.value means - value entered in input field
+=========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+header.js
+
+     import React from 'react'
+
+export default function Header(props) {
+  return (
+    <div style={{background : "red",padding:20, width:400}}>
+      <h1> {props.title}</h1>
+      <h1>{props.name}</h1>
+    <p>{props.paragraph}</p>
+   
+    </div>
+  )
+}
+
+
+
+                   
